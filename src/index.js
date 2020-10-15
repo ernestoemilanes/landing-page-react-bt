@@ -1,17 +1,37 @@
+//! Import the React and ReactDOM libraries.
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import MyCard from './Components/Card';
+import MyNavbar from './Components/Navbar';
+import MyJumbotron from './Components/Jumbotron';
+import MyFooter from './Components/Footer';
+import { Row, Col, Container } from 'react-bootstrap';
 
+//! Create a react component.
+const App = () => {
+        return (
+            <>
+                <MyNavbar />
+                <Container>
+                    <MyJumbotron />
+                    <Row>
+                        <Col><MyCard /></Col>
+                        <Col><MyCard /></Col>
+                        <Col><MyCard /></Col>
+                        <Col><MyCard /></Col>
+                    </Row>
+                </Container>
+                <MyFooter />
+             
+            </>
+        )
+ 
+};
+
+
+//! Take the react component and show it on the screen.
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <App />,
+    document.querySelector('#root')
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
